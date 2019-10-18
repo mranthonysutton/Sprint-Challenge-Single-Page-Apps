@@ -1,6 +1,6 @@
 import React from "react";
-import LocationList from "./LocationsList";
+import EpisodeList from "./EpisodeList";
 
 export default function LocationCard() {
-  return <LocationList />;
+  return <EpisodeList />;
 }

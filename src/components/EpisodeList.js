@@ -17,15 +17,15 @@ export default function LocationsList(props) {
     margin-bottom: 2%;
   `;
 
-  const [locationData, setLocationData] = useState([]);
+  const [episodeData, setEpisodeData] = useState([]);
   const [pageControl, setPageControl] = useState(1);
 
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/location/?page=${pageControl}`)
+      .get(`https://rickandmortyapi.com/api/episode/?page=${pageControl}`)
       .then(response => {
         // console.log(response.data.results);
-        setLocationData(response.data.results);
+        setEpisodeData(response.data.results);
       })
       .catch(error => {
         console.log("Error: ", error);
@@ -35,12 +35,12 @@ export default function LocationsList(props) {
   return (
     <>
       <CardContainer>
-        {locationData.map(location => {
+        {episodeData.map(episode => {
           return (
-            <CharacterCards key={location.id}>
-              <h3>{location.name}</h3>
-              <p>Type: {location.type}</p>
-              <p>Dimension: {location.dimension}</p>
+            <CharacterCards key={episode.id}>
+              <h3>{episode.name}</h3>
+              <p>{episode.episode}</p>
+              <p>{episode.air_date}</p>
             </CharacterCards>
           );
         })}
